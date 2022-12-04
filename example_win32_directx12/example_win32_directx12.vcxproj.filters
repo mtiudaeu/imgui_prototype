@@ -27,6 +27,9 @@
     <ClInclude Include="App.h">
       <Filter>sources</Filter>
     </ClInclude>
+    <ClInclude Include="ImguiDockable.h">
+      <Filter>sources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\imgui.cpp">
@@ -54,6 +57,9 @@
       <Filter>imgui</Filter>
     </ClCompile>
     <ClCompile Include="App.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ImguiDockable.cpp">
       <Filter>sources</Filter>
     </ClCompile>
   </ItemGroup>
