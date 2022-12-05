@@ -24,6 +24,26 @@ namespace App {
 
         ImGui::Begin("App");
         {
+            if (GetAsyncKeyState(VK_F1)) {
+
+            }
+            /*
+            SHORT key;
+            UINT mappedkey;
+            //In a loop.
+            INPUT input = { 0 };
+            key = VkKeyScan('i');
+            //Simulating the i key.
+            mappedkey = MapVirtualKey(LOBYTE(key), 0);
+            input.type = INPUT_KEYBOARD;
+            input.ki.dwFlags = KEYEVENTF_SCANCODE;
+            input.ki.wScan = mappedkey;
+            SendInput(1, &input, sizeof(input));
+            std::this_thread::sleep_for(std::chrono::milliseconds(10));
+            input.ki.dwFlags = KEYEVENTF_SCANCODE | KEYEVENTF_KEYUP;
+            SendInput(1, &input, sizeof(input));
+            */
+
             //---------
             static float f = 0.0f;
             static int counter = 0;
