@@ -30,6 +30,9 @@
     <ClInclude Include="ImguiDockable.h">
       <Filter>sources</Filter>
     </ClInclude>
+    <ClInclude Include="Commands.h">
+      <Filter>sources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\imgui.cpp">
@@ -60,6 +63,9 @@
       <Filter>sources</Filter>
     </ClCompile>
     <ClCompile Include="ImguiDockable.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands.cpp">
       <Filter>sources</Filter>
     </ClCompile>
   </ItemGroup>

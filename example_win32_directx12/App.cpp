@@ -29,6 +29,8 @@ namespace App {
             static int counter = 0;
             static POINT mousePosition;
 
+            //mdtmp Move to Commands.cpp
+            //      and call Command::AddHotkey from here.
             if (GetAsyncKeyState(VK_F2)) {
                 show_demo_window = !show_demo_window;
 
