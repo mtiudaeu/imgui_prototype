@@ -5,7 +5,8 @@
 namespace Command {
     enum ECommand {
         RECORD,
-        PLAY
+        PLAY,
+        TOGGLE_IMGUI_DEMO
     };
 
     void AddHotkey(ECommand cmd, size_t hotkey);

@@ -129,13 +129,9 @@ int WinMain(
     //ImFont* font = io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\ArialUni.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesJapanese());
     //IM_ASSERT(font != NULL);
 
-    // Our state
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-    /*
-    bool show_demo_window = true;
-    bool show_another_window = false;
-    */
-    
+
+    App::Init();
 
     // Main loop
     bool done = false;
@@ -144,7 +140,7 @@ int WinMain(
         // Poll and handle messages (inputs, window resize, etc.)
         // See the WndProc() function below for our to dispatch events to the Win32 backend.
         MSG msg;
-        while (::PeekMessage(&msg, NULL, 0U, 0U, PM_REMOVE))
+        while (::PeekMessage(&msg, NULL, 0U, 0U, PM_REMOVE))//mdtmp check hotkey with this instead!
         {
             ::TranslateMessage(&msg);
             ::DispatchMessage(&msg);

@@ -3,6 +3,8 @@
 #include "ImguiDockable.h"
 #include "imgui.h"
 
+#include "Commands.h"
+
 #include <windows.h>
 
 #include <thread>
@@ -14,44 +16,24 @@ namespace{
 
 namespace App {
     
+    void Init() {
+        Command::AddHotkey(Command::ECommand::TOGGLE_IMGUI_DEMO, VK_F2);
+    }
 
     void RenderUI() {
+        // ---------- Update ----------
+        Command::SeekAndRunCommands();
+
+        // ---------- Render ----------
         ImguiShowDockSpace();
 
         if (show_demo_window)
             ImGui::ShowDemoWindow(nullptr);
 
-
         ImGui::Begin("App");
         {
-            //---------
             static float f = 0.0f;
             static int counter = 0;
-            static POINT mousePosition;
-
-            //mdtmp Move to Commands.cpp
-            //      and call Command::AddHotkey from here.
-            if (GetAsyncKeyState(VK_F2)) {
-                show_demo_window = !show_demo_window;
-
-                INPUT in[4] = {};
-                ZeroMemory(in, sizeof(in));
-
-                in[0].type = INPUT_KEYBOARD;
-                in[0].ki.wVk = 0x44;
-                in[0].ki.dwFlags = KEYEVENTF_EXTENDEDKEY;
-
-                in[1].type = INPUT_KEYBOARD;
-                in[1].ki.wVk = 0x44;
-                in[1].ki.dwFlags = KEYEVENTF_KEYUP;
-
-                UINT uS = SendInput(2, in, sizeof(INPUT));
-
-                std::this_thread::sleep_for(std::chrono::milliseconds(100));
-            }
-
-            GetCursorPos(&mousePosition);
-
 
             ImGui::Text("This is some useful text.");
             ImGui::Checkbox("Demo Window", &show_demo_window);
@@ -69,9 +51,16 @@ namespace App {
             if (ImGui::Button("Move mouse")) {
                 SetCursorPos(100, 100);
             }
+
+            static POINT mousePosition;
+            GetCursorPos(&mousePosition);
             ImGui::Text("Cursor Position : x : %d, y : %d", mousePosition.x, mousePosition.y);
         }
         ImGui::End();
 
+    }
+    
+    void ToggleShowDemoWindow() {
+        show_demo_window = !show_demo_window;
     }
 }

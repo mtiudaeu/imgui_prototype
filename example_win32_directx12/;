@@ -10,11 +10,7 @@ namespace {
     std::map<Command::ECommand, std::vector<size_t>> m_HotkeysByCommands;
 
     void ExecuteCommand(Command::ECommand cmd) {
-        switch (cmd) {
-        case Command::TOGGLE_IMGUI_DEMO:
-            App::ToggleShowDemoWindow();
-            break;
-        }
+
     }
 }
 
@@ -33,14 +29,12 @@ namespace Command {
             const auto& hotkeys = hotkeysByCommand.second;
             for (auto hotkey : hotkeys) {
                 if (GetAsyncKeyState(hotkey)) {
-                    ExecuteCommand(command);
                 }
             }
         }
         
         //mdtmp Move to Commands.cpp
         //      and call Command::AddHotkey from here.
-        /*
         if (GetAsyncKeyState(VK_F2)) {
             App::ToggleShowDemoWindow();
 
@@ -59,6 +53,5 @@ namespace Command {
 
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
         }
-        */
     }
 }
